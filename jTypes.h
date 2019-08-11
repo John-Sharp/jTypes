@@ -34,5 +34,6 @@ typedef struct jintRect
   jintVec bl; // bottom left
   jintVec tr; // top right
 } jintRect;
+jintRect createJintRect(jint x1, jint y1, jint x2, jint y2);
 
 #endif

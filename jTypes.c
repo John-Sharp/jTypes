@@ -30,3 +30,7 @@ jfloat jvecDot(jvec a, jvec b)
     return a[0]*b[0] + a[1]*b[1];
 }
 
+jintRect createJintRect(jint x1, jint y1, jint x2, jint y2) {
+    jintRect ret = {.bl = {x1, y1}, .tr = {x2, y2}};
+    return ret;
+}
