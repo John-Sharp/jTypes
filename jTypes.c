@@ -30,7 +30,30 @@ jfloat jvecDot(jvec a, jvec b)
     return a[0]*b[0] + a[1]*b[1];
 }
 
-jintRect createJintRect(jint x1, jint y1, jint x2, jint y2) {
+jintRect createJintRect(jint x1, jint y1, jint x2, jint y2)
+{
     jintRect ret = {.bl = {x1, y1}, .tr = {x2, y2}};
+    return ret;
+}
+
+jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale) 
+{
+    jintLine ret = {
+        .rStart = {rStart.x, rStart.y},
+        .sTarg = {sTarg.x, sTarg.y},
+        .tScale = tScale
+    };
+
+    return ret;
+}
+
+#include <stdio.h>
+jintVec jintLineGetPosition(const jintLine * l, jint t)
+{
+    jintVec ret = {
+        l->rStart.x + t * l->sTarg.x / l->tScale,
+        l->rStart.y + t * l->sTarg.y / l->tScale 
+    };
+
     return ret;
 }

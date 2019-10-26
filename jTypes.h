@@ -10,7 +10,11 @@ typedef float jfloat;
 typedef double jdouble;
 
 typedef jfloat jvec[2];
-typedef jint jintVec[2];
+typedef struct jintVec
+{
+    jint x;
+    jint y;
+} jintVec;
 
 jfloat * jvecAdd(jvec a, jvec b);
 jfloat * jvecSub(jvec a, jvec b);
@@ -35,5 +39,17 @@ typedef struct jintRect
   jintVec tr; // top right
 } jintRect;
 jintRect createJintRect(jint x1, jint y1, jint x2, jint y2);
+
+
+// line where the position, `r` at time `t` is given by:
+// r = rStart + (t/tScale) * sTarg 
+typedef struct jintLine
+{
+    jintVec rStart; // point where line starts
+    jintVec sTarg; // direction of line
+    jint tScale; // scale factor
+} jintLine;
+jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale);
+jintVec jintLineGetPosition(const jintLine * l, jint t);
 
 #endif
