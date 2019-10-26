@@ -52,4 +52,21 @@ typedef struct jintLine
 jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale);
 jintVec jintLineGetPosition(const jintLine * l, jint t);
 
+// type that can represent line starting at `rStart` running parallel to an
+// axis for `length` 
+typedef enum AX_PL_DIR
+{
+    AX_PL_DIR_X, // parallel to x axis
+    AX_PL_DIR_Y, // parallel to y axis
+} AX_PL_DIR;
+typedef struct jintAxPlLine
+{
+    AX_PL_DIR direction;
+
+    jintVec rStart;
+    jint length;
+} jintAxPlLine;
+jintAxPlLine createJintAxPlLine(
+        AX_PL_DIR direction, jintVec rStart, jint length);
+
 #endif

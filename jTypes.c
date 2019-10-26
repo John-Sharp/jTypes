@@ -47,12 +47,23 @@ jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale)
     return ret;
 }
 
-#include <stdio.h>
 jintVec jintLineGetPosition(const jintLine * l, jint t)
 {
     jintVec ret = {
         l->rStart.x + t * l->sTarg.x / l->tScale,
         l->rStart.y + t * l->sTarg.y / l->tScale 
+    };
+
+    return ret;
+}
+
+jintAxPlLine createJintAxPlLine(
+        AX_PL_DIR direction, jintVec rStart, jint length)
+{
+    jintAxPlLine ret = {
+        .direction = direction,
+        .rStart = rStart,
+        .length = length
     };
 
     return ret;
