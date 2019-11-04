@@ -12,8 +12,7 @@ typedef double jdouble;
 typedef jfloat jvec[2];
 typedef struct jintVec
 {
-    jint x;
-    jint y;
+    jint v[2];
 } jintVec;
 
 jfloat * jvecAdd(jvec a, jvec b);

@@ -32,15 +32,15 @@ jfloat jvecDot(jvec a, jvec b)
 
 jintRect createJintRect(jint x1, jint y1, jint x2, jint y2)
 {
-    jintRect ret = {.bl = {x1, y1}, .tr = {x2, y2}};
+    jintRect ret = {.bl = {{x1, y1}}, .tr = {{x2, y2}}};
     return ret;
 }
 
 jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale) 
 {
     jintLine ret = {
-        .rStart = {rStart.x, rStart.y},
-        .sTarg = {sTarg.x, sTarg.y},
+        .rStart = rStart,
+        .sTarg = sTarg,
         .tScale = tScale
     };
 
@@ -49,10 +49,10 @@ jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale)
 
 jintVec jintLineGetPosition(const jintLine * l, jint t)
 {
-    jintVec ret = {
-        l->rStart.x + t * l->sTarg.x / l->tScale,
-        l->rStart.y + t * l->sTarg.y / l->tScale 
-    };
+    jintVec ret = {{
+        l->rStart.v[0] + t * l->sTarg.v[0] / l->tScale,
+        l->rStart.v[1] + t * l->sTarg.v[1] / l->tScale 
+    }};
 
     return ret;
 }
