@@ -13,6 +13,7 @@ typedef jfloat jvec[2];
 typedef struct jintVec
 {
     jint v[2];
+    jint scale;
 } jintVec;
 
 jfloat * jvecAdd(jvec a, jvec b);
