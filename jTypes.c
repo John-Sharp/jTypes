@@ -1,6 +1,15 @@
 #include "jTypes.h"
 #include <math.h>
 
+jfloat * jcolorSet(jcolor color, jfloat r, jfloat g, jfloat b)
+{
+    color[0] = r;
+    color[1] = g;
+    color[2] = b;
+
+    return color;
+}
+
 jfloat * jvecAdd(jvec a, jvec b)
 {
     a[0] += b[0];

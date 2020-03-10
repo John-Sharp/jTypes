@@ -10,6 +10,9 @@ typedef float jfloat;
 typedef double jdouble;
 
 typedef jfloat jvec[2];
+typedef jfloat jcolor[3];
+jfloat * jcolorSet(jcolor color, jfloat r, jfloat g, jfloat b);
+
 typedef struct jintVec
 {
     jint v[2];
