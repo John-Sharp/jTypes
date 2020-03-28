@@ -42,6 +42,8 @@ typedef struct jintRect
   jintVec tr; // top right
 } jintRect;
 jintRect createJintRect(jint x1, jint y1, jint x2, jint y2);
+jint jintRectGetWidth(const jintRect * r);
+jint jintRectGetHeight(const jintRect * r);
 
 
 // line where the position, `r` at time `t` is given by:

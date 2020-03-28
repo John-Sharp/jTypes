@@ -45,6 +45,16 @@ jintRect createJintRect(jint x1, jint y1, jint x2, jint y2)
     return ret;
 }
 
+jint jintRectGetWidth(const jintRect * r)
+{
+    return r->tr.v[0] - r->bl.v[0];
+}
+
+jint jintRectGetHeight(const jintRect * r)
+{
+    return r->tr.v[1] - r->bl.v[1];
+}
+
 jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale) 
 {
     jintLine ret = {
