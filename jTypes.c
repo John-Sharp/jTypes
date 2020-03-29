@@ -34,6 +34,26 @@ jfloat * jvecNorm(jvec a)
     return a;
 }
 
+jintVec jintVecAdd(const jintVec a, const jintVec b)
+{
+    jintVec ret;
+
+    ret.v[0] = a.v[0] + b.v[0];
+    ret.v[1] = a.v[1] + b.v[1];
+
+    return ret;
+}
+
+jintVec jintVecSub(const jintVec a, const jintVec b)
+{
+    jintVec ret;
+
+    ret.v[0] = a.v[0] - b.v[0];
+    ret.v[1] = a.v[1] - b.v[1];
+
+    return ret;
+}
+
 jfloat jvecDot(jvec a, jvec b)
 {
     return a[0]*b[0] + a[1]*b[1];

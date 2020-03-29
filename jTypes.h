@@ -18,6 +18,8 @@ typedef struct jintVec
     jint v[2];
     jint scale;
 } jintVec;
+jintVec jintVecAdd(const jintVec a, const jintVec b);
+jintVec jintVecSub(const jintVec a, const jintVec b);
 
 jfloat * jvecAdd(jvec a, jvec b);
 jfloat * jvecSub(jvec a, jvec b);
