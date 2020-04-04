@@ -16,7 +16,6 @@ jfloat * jcolorSet(jcolor color, jfloat r, jfloat g, jfloat b);
 typedef struct jintVec
 {
     jint v[2];
-    jint scale;
 } jintVec;
 jintVec jintVecAdd(const jintVec a, const jintVec b);
 jintVec jintVecSub(const jintVec a, const jintVec b);
@@ -47,16 +46,20 @@ jintRect createJintRect(jint x1, jint y1, jint x2, jint y2);
 jint jintRectGetWidth(const jintRect * r);
 jint jintRectGetHeight(const jintRect * r);
 
+typedef struct jintVecScaled
+{
+    jintVec v;
+    jint s;
+} jintVecScaled;
 
 // line where the position, `r` at time `t` is given by:
-// r = rStart + (t/tScale) * sTarg 
+// r = rStart + (t/sTarg.s) * sTarg.v.v
 typedef struct jintLine
 {
     jintVec rStart; // point where line starts
-    jintVec sTarg; // direction of line
-    jint tScale; // scale factor
+    jintVecScaled sTarg; // direction of line
 } jintLine;
-jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale);
+jintLine createJintLine(jintVec rStart, jintVecScaled sTarg);
 jintVec jintLineGetPosition(const jintLine * l, jint t);
 
 // type that can represent line starting at `rStart` running parallel to an

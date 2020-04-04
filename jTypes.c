@@ -75,12 +75,11 @@ jint jintRectGetHeight(const jintRect * r)
     return r->tr.v[1] - r->bl.v[1];
 }
 
-jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale) 
+jintLine createJintLine(jintVec rStart, jintVecScaled sTarg) 
 {
     jintLine ret = {
         .rStart = rStart,
-        .sTarg = sTarg,
-        .tScale = tScale
+        .sTarg = sTarg
     };
 
     return ret;
@@ -89,8 +88,8 @@ jintLine createJintLine(jintVec rStart, jintVec sTarg, jint tScale)
 jintVec jintLineGetPosition(const jintLine * l, jint t)
 {
     jintVec ret = {{
-        l->rStart.v[0] + t * l->sTarg.v[0] / l->tScale,
-        l->rStart.v[1] + t * l->sTarg.v[1] / l->tScale 
+        l->rStart.v[0] + t * l->sTarg.v.v[0] / l->sTarg.s,
+        l->rStart.v[1] + t * l->sTarg.v.v[1] / l->sTarg.s 
     }};
 
     return ret;
