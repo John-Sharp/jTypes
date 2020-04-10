@@ -75,6 +75,26 @@ jint jintRectGetHeight(const jintRect * r)
     return r->tr.v[1] - r->bl.v[1];
 }
 
+// TODO work out the scale correctly
+jintVecScaled jintVecScaledAdd(const jintVecScaled * a, const jintVecScaled * b)
+{
+    jintVecScaled ret = {
+        .v = {{a->v.v[0] + b->v.v[0], a->v.v[1] + b->v.v[1]}},
+        .s = a->s
+    };
+    return ret;
+}
+
+// TODO work out the scale correctly
+jintVecScaled jintVecScaledSub(const jintVecScaled * a, const jintVecScaled * b)
+{
+    jintVecScaled ret = {
+        .v = {{a->v.v[0] - b->v.v[0], a->v.v[1] - b->v.v[1]}},
+        .s = a->s
+    };
+    return ret;
+}
+
 jintLine createJintLine(jintVec rStart, jintVecScaled sTarg) 
 {
     jintLine ret = {

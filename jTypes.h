@@ -51,6 +51,8 @@ typedef struct jintVecScaled
     jintVec v;
     jint s;
 } jintVecScaled;
+jintVecScaled jintVecScaledAdd(const jintVecScaled * a, const jintVecScaled * b);
+jintVecScaled jintVecScaledSub(const jintVecScaled * a, const jintVecScaled * b);
 
 // line where the position, `r` at time `t` is given by:
 // r = rStart + (t/sTarg.s) * sTarg.v.v
